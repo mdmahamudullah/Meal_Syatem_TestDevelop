@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Populate year select
     const currentYear = new Date().getFullYear();
-    for (let year = currentYear - 5; year <= currentYear + 5; year++) {
+    for (let year = currentYear; year <= 2050; year++) {
         const option = document.createElement('option');
         option.value = year;
         option.textContent = year;
@@ -86,4 +86,4 @@ document.addEventListener('DOMContentLoaded', function() {
     yearSelect.addEventListener('change', () => generateCalendar(parseInt(monthSelect.value), parseInt(yearSelect.value)));
 
     generateCalendar(parseInt(monthSelect.value), parseInt(yearSelect.value));
-}); 
+});
