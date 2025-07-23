@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard | Meal System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto p-4">
+        <h1 class="text-3xl font-bold mb-4">User Dashboard</h1>
+
+        <!-- Summary Section -->
+        <div class="bg-white shadow-md rounded p-4 mb-4">
+            <h2 class="text-xl font-bold mb-4 text-center">Summary</h2>
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    <p class="mb-2">Total Meals: <span id="total-meals">0</span></p>
+                    <p class="mb-2">Lunch Rate: <span id="lunch-rate">30</span> Taka</p>
+                    <p class="mb-2">Total Amount: <span id="total-amount">0</span> Taka</p>
+                    <p>Total Paid Amount: <span id="paid-amount">0</span> Taka</p>
+                </div>
+                <div class="text-right">
+                    <p class="mb-2">Breakfast Rate: <span id="breakfast-rate">20</span> Taka</p>
+                    <p class="mb-2">Dinner Rate: <span id="dinner-rate">25</span> Taka</p>
+                    <p class="mb-12">Balance: <span id="balance">0</span> Taka</p>
+                    <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+                        Pay Now
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Calendar Section -->
+        <div class="bg-white shadow-md rounded p-4">
+            <h2 class="text-xl font-bold mb-2">Meal Calendar</h2>
+            <div class="flex items-center mb-4">
+                <select id="month-select" class="mr-2">
+                    <!-- Options will be populated by JS -->
+                </select>
+                <select id="year-select">
+                    <!-- Options will be populated by JS -->
+                </select>
+            </div>
+            <div id="calendar-header" class="grid grid-cols-12 gap-2 font-bold text-center"></div>
+            <div id="calendar" class="grid grid-cols-12 gap-2">
+                <!-- Calendar will be populated by JS -->
+            </div>
+        </div>
+        
+        <!-- Pay Now Button -->
+        <div class="mt-4 text-right">
+        </div>
+    </div>
+
+    <script src="../js/user-dashboard.js"></script>
+</body>
+</html> 

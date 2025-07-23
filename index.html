@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Meal List View</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/daisyui@3.6.4/dist/full.js"></script>
+</head>
+<body class="bg-gray-100 p-6">
+
+  <div class="max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-lg">
+    <h2 class="text-2xl font-bold text-center mb-6">🍽️ Meal Status - July 2025</h2>
+
+    <div class="overflow-x-auto">
+      <table class="table w-full">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>🍳 Breakfast</th>
+            <th>🍛 Lunch</th>
+            <th>🍽️ Dinner</th>
+          </tr>
+        </thead>
+        <tbody id="mealTable">
+          <!-- JavaScript will insert rows here -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = today.getMonth(); // 0-indexed
+    const totalDays = new Date(year, month + 1, 0).getDate();
+
+    const mealTable = document.getElementById("mealTable");
+
+    const mealData = {}; // date => {breakfast: 'off', lunch: 'off', dinner: 'off'}
+
+    // Function to create each button
+    function createButton(date, type) {
+      const key = `${date}-${type}`;
+      const value = mealData[key] || 'off';
+
+      const btn = document.createElement('button');
+      btn.className = `btn btn-sm ${value === 'on' ? 'btn-success' : 'btn-error'}`;
+      btn.textContent = value === 'on' ? 'On' : 'Off';
+      btn.dataset.date = date;
+      btn.dataset.type = type;
+      btn.addEventListener('click', () => {
+        // Toggle value
+        mealData[key] = mealData[key] === 'on' ? 'off' : 'on';
+        // Re-render button
+        renderTable();
+      });
+
+      return btn;
+    }
+
+    function renderTable() {
+      mealTable.innerHTML = "";
+
+      for (let day = 1; day <= totalDays; day++) {
+        const dateStr = new Date(year, month, day).toISOString().split("T")[0];
+        const tr = document.createElement("tr");
+
+        const tdDate = document.createElement("td");
+        tdDate.textContent = dateStr;
+        tr.appendChild(tdDate);
+
+        // Create buttons for breakfast, lunch, dinner
+        ["breakfast", "lunch", "dinner"].forEach(type => {
+          const td = document.createElement("td");
+          td.appendChild(createButton(dateStr, type));
+          tr.appendChild(td);
+        });
+
+        mealTable.appendChild(tr);
+      }
+    }
+
+    renderTable();
+  </script>
+</body>
+</html>

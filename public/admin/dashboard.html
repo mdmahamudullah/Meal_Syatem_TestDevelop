@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Meal System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto p-4">
+        <h1 class="text-3xl font-bold mb-4">Admin Dashboard</h1>
+
+        <!-- User Meal Overview -->
+        <div class="bg-white shadow-md rounded p-4 mb-4">
+            <h2 class="text-xl font-bold mb-2">User Meal Overview</h2>
+            <table class="w-full text-left">
+                <thead>
+                    <tr>
+                        <th class="p-2">User</th>
+                        <th class="p-2">Total Meals</th>
+                        <th class="p-2">Total Cost</th>
+                        <th class="p-2">Paid Amount</th>
+                        <th class="p-2">Balance</th>
+                    </tr>
+                </thead>
+                <tbody id="user-meal-overview">
+                    <!-- User data will be populated by JS -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Meal Rate Management -->
+        <div class="bg-white shadow-md rounded p-4 mb-4">
+            <h2 class="text-xl font-bold mb-2">Meal Rate Management</h2>
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    <label for="breakfast-rate-input">Breakfast Rate:</label>
+                    <input type="number" id="breakfast-rate-input" class="border p-1">
+                </div>
+                <div>
+                    <label for="lunch-rate-input">Lunch Rate:</label>
+                    <input type="number" id="lunch-rate-input" class="border p-1">
+                </div>
+                <div>
+                    <label for="dinner-rate-input">Dinner Rate:</label>
+                    <input type="number" id="dinner-rate-input" class="border p-1">
+                </div>
+                <div>
+                    <label for="fixed-charge-input">Fixed Monthly Charge:</label>
+                    <input type="number" id="fixed-charge-input" class="border p-1">
+                </div>
+            </div>
+            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4">
+                Update Rates
+            </button>
+        </div>
+
+    </div>
+
+    <script src="../js/admin-dashboard.js"></script>
+</body>
+</html> 
