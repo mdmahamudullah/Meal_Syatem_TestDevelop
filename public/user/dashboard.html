@@ -14,19 +14,28 @@
         <div class="bg-white shadow-md rounded p-4 mb-4">
             <h2 class="text-xl font-bold mb-4 text-center">Summary</h2>
             <div class="grid grid-cols-2 gap-4">
+                <!-- Left Col -->
                 <div>
-                    <p class="mb-2">Total Meals: <span id="total-meals">0</span></p>
-                    <p class="mb-2">Lunch Rate: <span id="lunch-rate">30</span> Taka</p>
-                    <p class="mb-2">Total Amount: <span id="total-amount">0</span> Taka</p>
-                    <p>Total Paid Amount: <span id="paid-amount">0</span> Taka</p>
+                    <p class="font-bold">Total Meals:</p>
+                    <p class="ml-4">Breakfast: <span id="summary-breakfast-count">0</span></p>
+                    <p class="ml-4">Lunch: <span id="summary-lunch-count">0</span></p>
+                    <p class="ml-4">Dinner: <span id="summary-dinner-count">0</span></p>
+                    <p>Lunch Rate: <span id="summary-lunch-rate">30</span> Taka</p>
+                    <p>Breakfast rate: <span id="summary-breakfast-rate">20</span> Taka</p>
+                    <p>Dinner Rate: <span id="summary-dinner-rate">25</span> Taka</p>
                 </div>
+                <!-- Right Col -->
                 <div class="text-right">
-                    <p class="mb-2">Breakfast Rate: <span id="breakfast-rate">20</span> Taka</p>
-                    <p class="mb-2">Dinner Rate: <span id="dinner-rate">25</span> Taka</p>
-                    <p class="mb-12">Balance: <span id="balance">0</span> Taka</p>
-                    <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
-                        Pay Now
-                    </button>
+                    <p>Total Amount: <span id="summary-total-amount">0</span> Taka</p>
+                    <p>Fixed Expense: <span id="summary-fixed-expense">20</span> Taka</p>
+                    <p class="font-bold">Grand Total: <span id="summary-grand-total">0</span> Taka</p>
+                    <p>Paid Amount: <span id="summary-paid-amount">0</span> Taka</p>
+                    <p class="font-bold">Balance: <span id="summary-balance">0</span> Taka</p>
+                    <div class="mt-4">
+                        <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+                            Pay Now
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -34,13 +43,22 @@
         <!-- Calendar Section -->
         <div class="bg-white shadow-md rounded p-4">
             <h2 class="text-xl font-bold mb-2">Meal Calendar</h2>
-            <div class="flex items-center mb-4">
-                <select id="month-select" class="mr-2">
-                    <!-- Options will be populated by JS -->
-                </select>
-                <select id="year-select">
-                    <!-- Options will be populated by JS -->
-                </select>
+            <div class="flex items-center justify-between mb-4">
+                <div class="flex items-center">
+                    <select id="month-select" class="mr-2">
+                        <!-- Options will be populated by JS -->
+                    </select>
+                    <select id="year-select">
+                        <!-- Options will be populated by JS -->
+                    </select>
+                </div>
+                <div class="flex items-center">
+                    <span class="mr-3 text-sm font-medium text-gray-900">Active all meal</span>
+                    <label class="relative inline-flex items-center cursor-pointer">
+                      <input type="checkbox" id="toggle-all-meals" class="sr-only peer">
+                      <div class="w-11 h-6 bg-red-500 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-green-600"></div>
+                    </label>
+                </div>
             </div>
             <div id="calendar-header" class="grid grid-cols-12 gap-2 font-bold text-center"></div>
             <div id="calendar" class="grid grid-cols-12 gap-2">
